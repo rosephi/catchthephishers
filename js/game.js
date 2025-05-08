@@ -20,7 +20,7 @@ const scenarios = [
   {
     // objekt med data tilhørende scenarie #0
     title: "The Suspicious Email",
-    description: "Welcome to the game! From now on, it's up to you to make the right choises and catch the phisher!",
+    description: "Welcome to the game! From now on, it's up to you to make the right choices and catch the phisher!",
     introLine: "Here's the deal:",
     text: "It's Monday afternoon. You just finished whatever you've been doing during the day and you're a bit tired. You're scrolling on the phone, when an email ticks in. It's from your bank, Nordic Bank, saying there was unauthorized activity on your account. The email urges you to click on a link to verify your identity. \n\n What do you do?", // spørgsmål til scenarie #1
     a: "Oh no, that sounds serious! I'd better click the link to check what's going on.", // svarmuligheder scenarie #0
