@@ -209,7 +209,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const audioAllowed = localStorage.getItem("audioAllowed") === "true";
 
-    if (audioAllowed) {
+    if (audioAllowed) { // hvis lyd er tilladt, starter musikken med fade-in effekt
       bgSound.muted = false;
       bgSound.volume = 0;
       bgSound.play().then(() => {
@@ -221,20 +221,20 @@ window.addEventListener("DOMContentLoaded", () => {
             clearInterval(fadeInterval);
           }
         }, 100);
-      }).catch(() => {
+      }).catch(() => { // hvis autoplay fejler, vent på brugerinteraktion for at starte lyden
         document.addEventListener("click", () => {
           bgSound.muted = false;
           bgSound.play().catch(() => {});
         }, { once: true });
       });
-    } else {
+    } else { // hvis brugeren ikke tidligere givet tilladelse, start lyden ved første klik
       document.addEventListener("click", () => {
         bgSound.muted = false;
         bgSound.play().catch(() => {});
       }, { once: true });
     }
 
-    soundToggle.addEventListener("click", () => {
+    soundToggle.addEventListener("click", () => { // tilføjer funktionalitet til lydikonet
       bgSound.muted = !bgSound.muted;
       if (!bgSound.muted && bgSound.volume === 0) {
         bgSound.volume = 1;
