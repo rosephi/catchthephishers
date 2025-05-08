@@ -1,5 +1,20 @@
 "use strict";
 
+//--------------------------------------------------
+// Indholdsfortegnelse – data til Catch the Phisher
+//--------------------------------------------------
+// 1. Scenariedata (array med alle spillets scenarier)
+// 2. Globale variabler (score, fejl, status)
+// 3. Funktion: loadScenario() – indlæser og viser næste scenarie
+// 4. Funktion: submitAnswer() – håndterer spillerens svar og viser feedback på dette
+// 5. Funktion: nextScenario() – går videre til næste scenarie eller resultatside
+// 6. Funktion: showResults() – viser resultater samt feedback på resultatsiden
+// 7. DOMContentLoaded – initialiserer spillet afhængigt af hvilken side vi er på:
+//    7.1. index.html – starter spillet og gemmer tilladelse til lyd
+//    7.2. game.html – loader scenarier, håndterer svar, next-knapen og lyd
+//    7.3. result.html – viser spillerens slutresultat
+//--------------------------------------------------
+
 const scenarios = [
   // array der indeholder et object for hvert scenarie, der er med i spillet
   {
@@ -18,11 +33,11 @@ const scenarios = [
     // objekt med data tilhørende scenarie #1
     title: "The Login Page …",
     text: "Curious, you clicked the link. The page looks identical to Nordic Bank's real site... logo, layout and there's even a chat function. But something's off: the URL says www.nordlcbank-support-verification.com. \n\n What do you do?", // spørgsmål til scenarie #1
-    a: "Hmm... That URL looks suspicious. I'll compare it to Nordic Banks real one before doing anything else.", // svarmuligheder scenarie #1
+    a: "Hmm... That URL looks suspicious. I'll compare it to Nordic Banks official one before doing anything else.", // svarmuligheder scenarie #1
     b: "It looks real enough. I'll enter my login to be safe.", // svarmuligheder scenarie #1
     correct: "a", // korrekt svar til spørgsmål i scenarie #1
     explanationA: "Phenomenal choice! Upon comparing the URL with Nordic Banks real URL, you saw that they weren't the same and therefore you reported it to your bank - and because of you they published a message warning all customers of a phishing attack. You rock! Phishing sites often mimic the real sites perfectly, but the URL almost always gives them away. A tiny change like a letter-combination can mean the difference between safety and danger. When in doubt, close the tab and type your bank's URL manually.", // feedback for korrekt svar, a
-    explanationB: "Be careful! The page may look legit, but phishers use exact copies of real websites to trick you. The strange-looking URL is a huge red flag. Entering your details here could give attackers full access to your account. Never trust a site just because it looks real! A great reminder is to always compare the an URL with another if in doubt.", // feedback hvis spilleren valgte b
+    explanationB: "Be careful! The page may look legit, but phishers use exact copies of real websites to trick you. The strange looking URL is a huge red flag. Entering your details here could give attackers full access to your account. Never trust a site just because it looks real! A great reminder is to always compare the an URL with another if in doubt.", // feedback hvis spilleren valgte b
     hint: "Hint: Never trust a URL that doesn't exactly match your bank's official domain. Type it manuall and compare if in doubt.", // hint som hjælp til at svare korrekt, kommer kun hvis der er svaret forkert på foregående spørgsmål
   },
   {
@@ -165,13 +180,13 @@ function showResults() {
   // resultatbesked og feedback
   if (finalScore === totalQs && finalMistakes === 0) {
     resultEl.innerHTML = `<strong>Perfect! You caught all ${totalQs} phishers!</strong>`;
-    infoEl.innerText = "Hey, that was awesome! You seem to be very well-informed about phishing-attacks - we couldn't be happier!\n\n";
+    infoEl.innerText = "That was awesome! You seem to be very well-informed about phishing-attacks - we couldn't be happier!\n\n";
   } else if (finalScore === totalQs - 1 && finalMistakes === 1) {
     resultEl.innerHTML = `<strong>Great job! You caught ${finalScore} out of ${totalQs}.</strong>`;
-    infoEl.innerText = "Such a great job you did there! Almost perfect! Review that one hint and we're sure that you'll nail it next time!\n\n";
+    infoEl.innerText = "Such a great job you did there! Almost perfect! Read the tips & tricks down below and your score will for sure be perfect nixe time!\n\n";
   } else {
     resultEl.innerHTML = `<strong>You caught ${finalScore} out of ${totalQs}.</strong>`;
-    infoEl.innerText = "Keep practicing! And remember to always double check the sender’s email address, URL spellings - and never rush a click.\n\n";
+    infoEl.innerText = "Great effort - keep practicing! And remember to always double check the sender's email address, URL spellings and never click any links from people wanting personal information.\n\n";
   }
 }
 
