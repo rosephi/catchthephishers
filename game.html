@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Phishers</title>
+  <link rel="icon" type="image/x-icon" href="img/fish.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/game.js" defer></script>
+</head>
+<body>
+  <main class="game-container">
+    <audio id="bgSound" src="ocean-breeze-312013.mp3" loop></audio>
+
+    <button id="soundToggle" aria-label="Toggle sound">
+      <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" class="icon-visible" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>
+      </svg>
+    
+      <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" class="hidden" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03z"/>
+        <path d="M3 9v6h4l5 5V4L7 9H3z"/>
+        <line x1="19" y1="5" x2="5" y2="19" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </button>
+  
+    <h1 id="scenario-title"></h1>
+    <p id="intro-text"></p>
+    <p id="intro-line"></p>
+    
+    <section class="scenario-box">
+      <p id="scenario-text"></p>
+    </section>
+  
+    <div class="choices">
+      <button id="btn-a"></button>
+      <button id="btn-b"></button>
+    </div>
+
+    <div id="popup-overlay" style="display: none;"></div>
+  
+    <div id="feedback-popup" style="display: none;">
+      <p id="feedback-text"></p>
+      <button id="next-button"></button>
+    </div>
+  </main>
+</body>
+</html>
+

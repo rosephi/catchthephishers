@@ -1,0 +1,18 @@
+@use '_variables';
+
+body {
+  margin: 0;
+  font-family: variables.$font-main;
+  background-color: variables.$color-bg;
+  color: variables.$color-text;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  margin: 0 0 variables.$spacing 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
